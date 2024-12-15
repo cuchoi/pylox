@@ -5,7 +5,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Lox():
+class Lox:
     had_error: bool = False
 
     def run(self, source: str) -> None:
@@ -15,23 +15,19 @@ class Lox():
         for token in tokens:
             print(token)
 
-
     def error(self, line: int, message: str) -> None:
         self.report(line, "", message)
-
 
     def report(self, line: int, where: str, message: str) -> None:
         print(f"[line {line}] Error {where}: {message}", file=sys.stderr)
         self.had_error = True
 
-
     def run_file(self, path: str) -> None:
         with open(path, "r") as file:
             self.run(file.read())
-        
+
         if self.had_error:
             sys.exit(65)
-
 
     def run_prompt(self) -> None:
         while True:

@@ -2,6 +2,7 @@ import enum
 from typing import Any
 from dataclasses import dataclass
 
+
 @enum.unique
 class TokenType(enum.Enum):
     # Single character tokens
@@ -46,8 +47,9 @@ class TokenType(enum.Enum):
     THIS = enum.auto()
     VAR = enum.auto()
     WHILE = enum.auto()
-    
+
     EOF = enum.auto()
+
 
 @dataclass
 class Token:
